@@ -10,7 +10,7 @@ public class Demo {
 		System.out.println(b);
 		System.out.println(++b);
 		System.out.println(++b);
-		System.out.println("Kesirli yuvarlama hatasý örnekleri");
+		System.out.println("tamsayýlarda yuvarlama hatasý örnekleri");
 		float s1=0,f= 0.00001f,f2=0.00000999999974737875163555145263671875f;
 		float f3 =1_000_000_001f , f4= 1_000_000_000f;
 		if (f3==f4)

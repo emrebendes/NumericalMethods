@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Oct 12 10:43:41 2023
+
+@author: EMRE BENDEŞ
+Derste şu uygulamalar için yazılmıştır:
+1 - Sayısal bir yöntemde sürekli hata oluşacağını grafiksel gözlemlemek için f(x) ve plot(n0,n1) metotlarını kullanarak farklı aralık değerlerinde denemeler yapmak 
+2-  Maclaurin serisinin n elemanlı seri açılımı ile e^x fonksiyonunun belirli bir x değerindeki sonucu için ex metodunu kullanarak gerçek hata ve yaklaşık hataları gözlemlemek ve analiz etmek
+"""
 #%matplotlib qt
 import numpy as np
 import math
@@ -30,15 +39,17 @@ def bul():#0-10 aralığında fonksiyonun nerede işret değiştirdiğini arıyo
         y= f(x)
     return limits
  
-def ex(x,n):#maclourin açılımını x değeri için n elemanla hesaplıyor.
+def ex(x,n):#Maclaurin açılımını x değeri için n elemanla hesaplıyor.
     # s=0;
     # for i in range(n):
     #     s+=x**i/math.factorial(i)
     # return s
     return sum([x**i/math.factorial(i) for i in range(n)])
 
+# Dersteki 1. örnek :  e^-1+ln(x) fonksiyonunu farklı aralıklarda deneyerek grafiğini çiz ve sürekli bir hata olduğunu gözlemle ...
+plot(.5,.6)
 
-# 10 iterasyon maclourin açılımı açıp gerçek ve yaklaşık hataları hesaplayarak tablo hlinde ekrana bastır
+# Dersteki 2. örnek : 10 iterasyon Maclaurin açılımı açıp gerçek ve yaklaşık hataları hesaplayarak tablo hlinde ekrana bastır
 print("   Sonuç \t\t\t Et \t\t\t Ea") 
 snc=[];
 gd=math.e**0.5
@@ -49,8 +60,5 @@ for i in range(1,10):
         ea = abs((snc[-1]-snc[-2])/snc[-1])*100
         print("%d - %1.8f \t %1.8f \t %1.8f" % (i,snc[-1],et,ea) ) 
        
-# ex(2)
-# limit=bul()   
 
-#  e^-1+ln(x) fonksiyonunu farklı aralıklarda deneyerek grafiğini çiz ve sürekli bir hata olduğunu gözlemle ...
-plot(.5,.6)
+

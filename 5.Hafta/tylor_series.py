@@ -2,7 +2,11 @@
 """
 Created on Thu Oct 20 14:33:37 2022
 
-@author: EMRE5
+@author: EMRE BENDEŞ
+Aşağıdaki amaçlarla yazılmıştır:
+- Taylor serisini herhangi bir fonsiyon için açabilen taylor metodunu sympy kütüphanesi ile gerçekleştirme 
+- KArekök fonksiyonunda her zaman küçük h=|x-x0| değeri için çabuk yakınsama olmadığını gözlemlemek. 
+    örn: 2'0.5 için x0=4 (h=2) ile 11 iterasyonda yakınsama var iken x0=1 (h=1) ile 150 iterasyon yetersiz kalmakta.
 """
 #%matplotlib qt
 import numpy as np

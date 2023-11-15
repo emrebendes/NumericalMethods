@@ -31,9 +31,12 @@ def graphic(f,xdata):
     ax.grid() 
     ax.axhline(y=0, color='k')
     ax.axvline(x=0, color='k')
+
+def Errora(xy,xe):
+    return abs(100*(xy-xe)/xy)
     
 def iteration(f, x0,x1, min_error=0.0000001, max_iteration=6):
-    df=f.diff(x)  
+    
     i = 0
     Ea = 1
     xp = []
@@ -41,13 +44,12 @@ def iteration(f, x0,x1, min_error=0.0000001, max_iteration=6):
     print("\t  g(x) \t\t\t Ea " )
     while Ea > min_error and i < max_iteration:
     
-        xn = x0 - (lambdify(x,f)(x0)*(x1-x0))/(lambdify(x,df)(x1)-lambdify(x,df)(x0))
-  
-        Ea = abs(x0 - xn)
+        xn = x1 - (lambdify(x,f)(x1)*(x0-x1))/(lambdify(x,f)(x0)-lambdify(x,f)(x1))
+        Ea = Errora(x1,xn)
         print("%d - %2.8f \t %2.8f " % (i,xn,Ea) ) 
-        x1=x0
-        x0 = xn
-        xp.append(x0)
+        x0=x1
+        x1 = xn
+        xp.append(x1)
         i += 1
     # print(xp)
     return xp
@@ -56,8 +58,8 @@ def main():
     # fx = input("Write function: ")
     # given_function = lambda x: eval(fx)
     
-    f=sin(x**.5)-x#♣e**(-x)-x
-    x1 = iteration(f,0.5,1,0.005)# 1,0)    
+    f=e**(-x)-x
+    x1 = iteration(f,0,1,0.005)# 1,0)    
     
     graphic(f,x1)
 
